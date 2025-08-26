@@ -16,42 +16,59 @@
       background: url("fondo.jpg") no-repeat center center fixed;
       background-size: cover;
       font-family: Arial, sans-serif;
-    }
-    #nombre {
-      font-size: 60px;
-      font-weight: bold;
+      text-align: center;
       color: #ffffff;
-      text-shadow: 2px 2px 8px #000000;
-      margin-top: 20px;
     }
+
+    h1 {
+      font-size: 60px;      /* Muy grande */
+      margin: 0;
+      text-shadow: 3px 3px 10px #000000;
+    }
+
+    h2 {
+      font-size: 35px;      /* Mediano */
+      margin: 10px 0 20px 0;
+      text-shadow: 2px 2px 8px #000000;
+    }
+
+    #empresa {
+      font-size: 70px;      /* Más grande que h1 */
+      font-weight: bold;
+      text-shadow: 4px 4px 12px #000000;
+    }
+
     #entrada {
       font-size: 20px;
       padding: 10px;
-      margin-bottom: 20px;
+      margin-top: 40px;
     }
+
     .ocultar {
       position: absolute;
-      top: -100px; /* Para ocultar el campo de texto una vez usado */
+      top: -100px;
     }
   </style>
 </head>
 <body>
-  <input id="entrada" type="text" placeholder="Escriba el nombre del visitante">
-  <div id="nombre">Bienvenido</div>
+  <h1>Bienvenid@ a Amada Maquinaria Ibérica</h1>
+  <h2>Hoy nos visita la empresa:</h2>
+  <div id="empresa">______</div>
+
+  <input id="entrada" type="text" placeholder="Escriba el nombre de la empresa">
 
   <script>
     const entrada = document.getElementById('entrada');
-    const nombre = document.getElementById('nombre');
+    const empresa = document.getElementById('empresa');
 
     entrada.addEventListener('input', () => {
-      nombre.textContent = "Bienvenid@ a Amada Maquinaría Ibérica " + entrada.value;
+      empresa.textContent = entrada.value;
     });
 
-    // Si quieres ocultar el campo tras escribir:
+    // Ocultar el campo de texto al presionar Enter
     entrada.addEventListener('change', () => {
       entrada.classList.add('ocultar');
     });
   </script>
 </body>
 </html>
-
