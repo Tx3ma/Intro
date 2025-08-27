@@ -10,46 +10,51 @@
       height: 100vh;
       width: 100vw;
       display: flex;
-      /* CAMBIO: Alinear el contenido a la esquina superior derecha */
-      justify-content: flex-end; /* Eje horizontal: al final (derecha) */
-      align-items: flex-start;   /* Eje vertical: al principio (arriba) */
+      /* Alinea todo el contenido a la derecha */
+      justify-content: flex-end; 
+      align-items: center;
       flex-direction: column;
+      /* Fondo original */
       background: url("fondo.jpg") no-repeat center center fixed; 
       background-size: cover;
       font-family: Arial, sans-serif;
-      text-align: right; 
+      text-align: right; /* Alinea el texto a la derecha */
+      /* Color de texto negro */
       color: #000000; 
-      /* CAMBIO: Añadido padding para separar de los bordes superior y derecho */
-      padding-top: 10%; 
-      padding-right: 10%; 
+      /* Padding a la derecha para que no se pegue al borde */
+      padding-right: 5%; 
       box-sizing: border-box; 
     }
 
-    /* El contenedor ahora se posiciona donde le indica el body */
+    /* Contenedor para agrupar y centrar verticalmente */
     .content-wrapper {
       display: flex;
       flex-direction: column;
-      align-items: flex-end; 
-      /* CAMBIO: Eliminados los márgenes automáticos que lo centraban verticalmente */
+      align-items: flex-end; /* Alinea los elementos internos a la derecha */
+      margin-top: auto; 
+      margin-bottom: auto; /* Centra verticalmente el grupo de texto */
     }
 
     h1 {
-      font-size: 3rem; /* Ajustado ligeramente para el layout */
+      font-size: 4rem; 
       margin: 0;
+      /* Sombreado gris */
       text-shadow: 3px 3px 10px rgba(128, 128, 128, 0.7); 
     }
 
     h2 {
-      font-size: 2rem; /* Ajustado ligeramente para el layout */
+      font-size: 2.5rem;
       margin: 10px 0 20px 0;
+      /* Sombreado gris */
       text-shadow: 2px 2px 8px rgba(128, 128, 128, 0.7); 
     }
 
     #empresa {
-      font-size: 3.5rem; /* Ajustado ligeramente para el layout */
+      font-size: 4.5rem;
       font-weight: bold;
+      /* Sombreado gris */
       text-shadow: 4px 4px 12px rgba(128, 128, 128, 0.7); 
-      min-height: 70px; 
+      min-height: 80px; 
     }
 
     #entrada {
