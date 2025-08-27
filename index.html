@@ -2,15 +2,18 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bienvenida</title>
   <style>
-    html, body { height: 100%; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      background-image: url("fondo.jpg");
-      background-repeat: no-repeat;
-      background-position: center center;
-      -webkit-background-size: cover; /* compat iOS antiguo */
+      background: url("fondo.jpg") no-repeat center center;
+      -webkit-background-size: cover; /* compatibilidad iOS 8/9 */
       background-size: cover;
       font-family: Arial, sans-serif;
       color: #000000;
@@ -24,25 +27,43 @@
       text-align: right;
     }
 
-    .header h1 {
+    .header h1, .header h2, .header h3 {
       margin: 0;
-      font-size: 42px;
-      line-height: 1.05;
+      line-height: 1.1;
       color: #000000;
       text-shadow: 2px 2px 4px #cccccc; /* sombra gris claro */
     }
 
-    .header h2 {
-      margin: 6px 0 0 0;
-      font-size: 32px;
-      line-height: 1;
-      color: #000000;
-      text-shadow: 2px 2px 4px #cccccc; /* sombra gris claro */
+    .header h1 { font-size: 42px; }
+    .header h2 { font-size: 32px; margin-top: 8px; }
+    .header h3 { font-size: 30px; margin-top: 4px; }
+
+    .input-box {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255,255,255,0.8);
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .input-box input {
+      font-size: 18px;
+      padding: 5px;
+    }
+
+    .input-box button {
+      font-size: 18px;
+      padding: 5px 10px;
+      margin-left: 5px;
+      cursor: pointer;
     }
 
     @media (max-width: 768px) {
-      .header h1 { font-size: 30px; }
+      .header h1 { font-size: 28px; }
       .header h2 { font-size: 22px; }
+      .header h3 { font-size: 20px; }
     }
   </style>
 </head>
@@ -50,6 +71,22 @@
   <div class="header">
     <h1>Bienvenid@ a Amada Maquinaria Ibérica</h1>
     <h2>Hoy nos visita:</h2>
+    <h3 id="empresa">Nombre de la Empresa</h3>
   </div>
+
+  <!-- Caja para cambiar el nombre -->
+  <div class="input-box">
+    <input type="text" id="empresaInput" placeholder="Escribe el nombre de la empresa">
+    <button onclick="cambiarEmpresa()">Actualizar</button>
+  </div>
+
+  <script>
+    function cambiarEmpresa() {
+      var nombre = document.getElementById("empresaInput").value;
+      if(nombre.trim() !== "") {
+        document.getElementById("empresa").innerHTML = nombre;
+      }
+    }
+  </script>
 </body>
 </html>
