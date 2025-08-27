@@ -10,80 +10,95 @@
       height: 100vh;
       width: 100vw;
       display: flex;
-      justify-content: center;
+      /* CAMBIO: Alinear a la derecha */
+      justify-content: flex-end; 
       align-items: center;
       flex-direction: column;
-      background: url("https://images.unsplash.com/photo-1554050857-c84a8abdb5e2?q=80&w=2574&auto=format&fit=crop") no-repeat center center fixed; /* He puesto una imagen de fondo de ejemplo */
+      /* FONDO: Vuelto a como estaba */
+      background: url("fondo.jpg") no-repeat center center fixed; 
       background-size: cover;
       font-family: Arial, sans-serif;
-      text-align: center;
-      color: #ffffff;
+      text-align: right; /* CAMBIO: Alinear texto a la derecha */
+      /* CAMBIO: Color de texto negro */
+      color: #000000; 
+      /* Añadido padding a la derecha para que no se pegue al borde */
+      padding-right: 5%; 
+      box-sizing: border-box; /* Para que el padding no añada ancho extra */
+    }
+
+    /* Contenedor para el texto para agruparlo y moverlo */
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end; /* Alinea los elementos internos a la derecha */
+      /* Ajuste de margen para que el wrapper no esté pegado al top si es necesario */
+      margin-top: auto; 
+      margin-bottom: auto; /* Centrar verticalmente el grupo de texto */
     }
 
     h1 {
-      font-size: 4rem; /* Usar rem es mejor para la accesibilidad */
+      font-size: 4rem; 
       margin: 0;
-      text-shadow: 3px 3px 10px #000000;
+      /* CAMBIO: Sombreado gris */
+      text-shadow: 3px 3px 10px rgba(128, 128, 128, 0.7); 
     }
 
     h2 {
       font-size: 2.5rem;
       margin: 10px 0 20px 0;
-      text-shadow: 2px 2px 8px #000000;
+      /* CAMBIO: Sombreado gris */
+      text-shadow: 2px 2px 8px rgba(128, 128, 128, 0.7); 
     }
 
     #empresa {
       font-size: 4.5rem;
       font-weight: bold;
-      text-shadow: 4px 4px 12px #000000;
-      min-height: 80px; /* Evita que el texto salte al aparecer */
+      /* CAMBIO: Sombreado gris */
+      text-shadow: 4px 4px 12px rgba(128, 128, 128, 0.7); 
+      min-height: 80px; 
     }
 
     #entrada {
       font-size: 1.5rem;
       padding: 15px;
       margin-top: 40px;
-      border-radius: 8px; /* Bordes redondeados */
+      border-radius: 8px; 
       border: none;
       text-align: center;
-      /* ✨ MEJORA: Transición suave para ocultar */
       transition: opacity 0.5s ease-out;
+      /* Color de fondo del input para que contraste con el fondo */
+      background-color: rgba(255, 255, 255, 0.8); 
+      color: #000000; /* Color del texto dentro del input */
     }
 
-    /* ✨ MEJORA: Una forma más moderna y suave de ocultar */
     .ocultar {
       opacity: 0;
-      pointer-events: none; /* Evita que se pueda interactuar con el elemento oculto */
+      pointer-events: none; 
     }
   </style>
 </head>
 <body>
-  <h1>Bienvenid@ a Amada Maquinaria Ibérica</h1>
-  <h2>Hoy nos visita la empresa:</h2>
-  <div id="empresa">______</div>
+  <div class="content-wrapper">
+    <h1>Bienvenid@ a Amada Maquinaria Ibérica</h1>
+    <h2>Hoy nos visita la empresa:</h2>
+    <div id="empresa">______</div>
 
-  <input id="entrada" type="text" placeholder="Escriba el nombre de la empresa">
+    <input id="entrada" type="text" placeholder="Escriba el nombre de la empresa">
+  </div>
 
   <script>
     const entrada = document.getElementById('entrada');
     const empresa = document.getElementById('empresa');
 
-    // ✨ MEJORA: Pone el cursor en el campo de texto al cargar la página
     entrada.focus();
 
     entrada.addEventListener('input', () => {
-      // ✨ MEJORA: Si el campo está vacío, vuelve a poner los guiones
       empresa.textContent = entrada.value || '______';
     });
 
-    // ✅ CORRECCIÓN: Usamos 'keydown' para detectar la pulsación de una tecla
     entrada.addEventListener('keydown', (event) => {
-      // Comprobamos si la tecla pulsada es "Enter"
       if (event.key === 'Enter') {
-        // Evita que se envíe un formulario (buena práctica)
         event.preventDefault(); 
-        
-        // Añade la clase para iniciar la animación de ocultar
         entrada.classList.add('ocultar');
       }
     });
