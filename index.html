@@ -1,83 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Bienvenida</title>
   <style>
+    html, body { height: 100%; margin: 0; padding: 0; }
     body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      width: 100vw;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: end;
-      -ms-flex-pack: end;
-      justify-content: flex-end;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      background: url("fondo.jpg") no-repeat center center fixed;
+      background-image: url("fondo.jpg");
+      background-repeat: no-repeat;
+      background-position: center center;
+      -webkit-background-size: cover; /* compat iOS antiguo */
       background-size: cover;
       font-family: Arial, sans-serif;
-      text-align: right;
-      color: #000000; /* texto en negro */
-      padding: 30px;
+      color: #000000;
     }
 
-    h1 {
-      font-size: 60px;
-      margin: 0;
-      text-shadow: 3px 3px 10px #ff0000; /* sombra roja */
-    }
-
-    h2 {
-      font-size: 35px;
-      margin: 10px 0 20px 0;
-      text-shadow: 2px 2px 8px #ff0000;
-    }
-
-    #empresa {
-      font-size: 70px;
-      font-weight: bold;
-      text-shadow: 4px 4px 12px #ff0000;
-    }
-
-    #entrada {
-      font-size: 20px;
-      padding: 10px;
-      margin-top: 40px;
-    }
-
-    .ocultar {
+    .header {
       position: absolute;
-      top: -100px;
+      top: 10px;
+      right: 10px;
+      max-width: 92%;
+      text-align: right;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1.05;
+      color: #000000;
+      text-shadow: 2px 2px 4px #cccccc; /* sombra gris claro */
+    }
+
+    .header h2 {
+      margin: 6px 0 0 0;
+      font-size: 32px;
+      line-height: 1;
+      color: #000000;
+      text-shadow: 2px 2px 4px #cccccc; /* sombra gris claro */
+    }
+
+    @media (max-width: 768px) {
+      .header h1 { font-size: 30px; }
+      .header h2 { font-size: 22px; }
     }
   </style>
 </head>
 <body>
-  <h1>Bienvenid@ a Amada Maquinaria Ibérica</h1>
-  <h2>Hoy nos visita:</h2>
-  <div id="empresa">______</div>
-
-  <input id="entrada" type="text" placeholder="Escriba el nombre de la empresa">
-
-  <script>
-    var entrada = document.getElementById('entrada');
-    var empresa = document.getElementById('empresa');
-
-    entrada.addEventListener('keyup', function() {
-      empresa.textContent = entrada.value;
-    });
-
-    entrada.addEventListener('change', function() {
-      entrada.classList.add('ocultar');
-    });
-  </script>
+  <div class="header">
+    <h1>Bienvenid@ a Amada Maquinaria Ibérica</h1>
+    <h2>Hoy nos visita:</h2>
+  </div>
 </body>
 </html>
