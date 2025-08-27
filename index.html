@@ -9,12 +9,12 @@
       padding: 0;
       height: 100vh;
       width: 100vw;
-      display: -webkit-box;      /* compatibilidad vieja */
-      display: -ms-flexbox;      /* IE */
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+      justify-content: flex-end;
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
@@ -25,26 +25,27 @@
       background: url("fondo.jpg") no-repeat center center fixed;
       background-size: cover;
       font-family: Arial, sans-serif;
-      text-align: center;
-      color: #ffffff;
+      text-align: right;
+      color: #000000; /* texto en negro */
+      padding: 30px;
     }
 
     h1 {
       font-size: 60px;
       margin: 0;
-      text-shadow: 3px 3px 10px #000000;
+      text-shadow: 3px 3px 10px #ff0000; /* sombra roja */
     }
 
     h2 {
       font-size: 35px;
       margin: 10px 0 20px 0;
-      text-shadow: 2px 2px 8px #000000;
+      text-shadow: 2px 2px 8px #ff0000;
     }
 
     #empresa {
       font-size: 70px;
       font-weight: bold;
-      text-shadow: 4px 4px 12px #000000;
+      text-shadow: 4px 4px 12px #ff0000;
     }
 
     #entrada {
@@ -61,7 +62,7 @@
 </head>
 <body>
   <h1>Bienvenid@ a Amada Maquinaria Ibérica</h1>
-  <h2>Hoy nos visita la empresa:</h2>
+  <h2>Hoy nos visita:</h2>
   <div id="empresa">______</div>
 
   <input id="entrada" type="text" placeholder="Escriba el nombre de la empresa">
@@ -70,7 +71,6 @@
     var entrada = document.getElementById('entrada');
     var empresa = document.getElementById('empresa');
 
-    // Usamos funciones tradicionales
     entrada.addEventListener('keyup', function() {
       empresa.textContent = entrada.value;
     });
