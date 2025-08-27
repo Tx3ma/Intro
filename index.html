@@ -10,52 +10,46 @@
       height: 100vh;
       width: 100vw;
       display: flex;
-      /* CAMBIO: Alinear a la derecha */
-      justify-content: flex-end; 
-      align-items: center;
+      /* CAMBIO: Alinear el contenido a la esquina superior derecha */
+      justify-content: flex-end; /* Eje horizontal: al final (derecha) */
+      align-items: flex-start;   /* Eje vertical: al principio (arriba) */
       flex-direction: column;
-      /* FONDO: Vuelto a como estaba */
       background: url("fondo.jpg") no-repeat center center fixed; 
       background-size: cover;
       font-family: Arial, sans-serif;
-      text-align: right; /* CAMBIO: Alinear texto a la derecha */
-      /* CAMBIO: Color de texto negro */
+      text-align: right; 
       color: #000000; 
-      /* Añadido padding a la derecha para que no se pegue al borde */
-      padding-right: 5%; 
-      box-sizing: border-box; /* Para que el padding no añada ancho extra */
+      /* CAMBIO: Añadido padding para separar de los bordes superior y derecho */
+      padding-top: 10%; 
+      padding-right: 10%; 
+      box-sizing: border-box; 
     }
 
-    /* Contenedor para el texto para agruparlo y moverlo */
+    /* El contenedor ahora se posiciona donde le indica el body */
     .content-wrapper {
       display: flex;
       flex-direction: column;
-      align-items: flex-end; /* Alinea los elementos internos a la derecha */
-      /* Ajuste de margen para que el wrapper no esté pegado al top si es necesario */
-      margin-top: auto; 
-      margin-bottom: auto; /* Centrar verticalmente el grupo de texto */
+      align-items: flex-end; 
+      /* CAMBIO: Eliminados los márgenes automáticos que lo centraban verticalmente */
     }
 
     h1 {
-      font-size: 4rem; 
+      font-size: 3rem; /* Ajustado ligeramente para el layout */
       margin: 0;
-      /* CAMBIO: Sombreado gris */
       text-shadow: 3px 3px 10px rgba(128, 128, 128, 0.7); 
     }
 
     h2 {
-      font-size: 2.5rem;
+      font-size: 2rem; /* Ajustado ligeramente para el layout */
       margin: 10px 0 20px 0;
-      /* CAMBIO: Sombreado gris */
       text-shadow: 2px 2px 8px rgba(128, 128, 128, 0.7); 
     }
 
     #empresa {
-      font-size: 4.5rem;
+      font-size: 3.5rem; /* Ajustado ligeramente para el layout */
       font-weight: bold;
-      /* CAMBIO: Sombreado gris */
       text-shadow: 4px 4px 12px rgba(128, 128, 128, 0.7); 
-      min-height: 80px; 
+      min-height: 70px; 
     }
 
     #entrada {
@@ -66,9 +60,8 @@
       border: none;
       text-align: center;
       transition: opacity 0.5s ease-out;
-      /* Color de fondo del input para que contraste con el fondo */
       background-color: rgba(255, 255, 255, 0.8); 
-      color: #000000; /* Color del texto dentro del input */
+      color: #000000; 
     }
 
     .ocultar {
@@ -79,8 +72,9 @@
 </head>
 <body>
   <div class="content-wrapper">
-    <h1>Bienvenid@ a Amada Maquinaria Ibérica</h1>
-    <h2>Hoy nos visita la empresa:</h2>
+    <h1>Bienvenid@ </h1>
+    <h2>Amada Maquinaria Ibérica</h2>
+    <h3>Hoy nos visita:</h3>
     <div id="empresa">______</div>
 
     <input id="entrada" type="text" placeholder="Escriba el nombre de la empresa">
