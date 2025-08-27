@@ -1,1 +1,92 @@
-<!DOCTYPE html> <html lang="es"> <head> <meta charset="UTF-8"> <title>Bienvenida</title> <style> body { margin: 0; padding: 0; height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center; flex-direction: column; background: url("fondo.jpg") no-repeat center center fixed; background-size: cover; font-family: Arial, sans-serif; text-align: center; color: #ffffff; } h1 { font-size: 60px; /* Muy grande */ margin: 0; text-shadow: 3px 3px 10px #000000; } h2 { font-size: 35px; /* Mediano */ margin: 10px 0 20px 0; text-shadow: 2px 2px 8px #000000; } #empresa { font-size: 70px; /* Más grande que h1 */ font-weight: bold; text-shadow: 4px 4px 12px #000000; } #entrada { font-size: 20px; padding: 10px; margin-top: 40px; } .ocultar { position: absolute; top: -100px; } </style> </head> <body> <h1>Bienvenid@ a Amada Maquinaria Ibérica</h1> <h2>Hoy nos visita la empresa:</h2> <div id="empresa">______</div> <input id="entrada" type="text" placeholder="Escriba el nombre de la empresa"> <script> const entrada = document.getElementById('entrada'); const empresa = document.getElementById('empresa'); entrada.addEventListener('input', () => { empresa.textContent = entrada.value; }); // Ocultar el campo de texto al presionar Enter entrada.addEventListener('change', () => { entrada.classList.add('ocultar'); }); </script> </body> </html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Bienvenida</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: url("https://images.unsplash.com/photo-1554050857-c84a8abdb5e2?q=80&w=2574&auto=format&fit=crop") no-repeat center center fixed; /* He puesto una imagen de fondo de ejemplo */
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    h1 {
+      font-size: 4rem; /* Usar rem es mejor para la accesibilidad */
+      margin: 0;
+      text-shadow: 3px 3px 10px #000000;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin: 10px 0 20px 0;
+      text-shadow: 2px 2px 8px #000000;
+    }
+
+    #empresa {
+      font-size: 4.5rem;
+      font-weight: bold;
+      text-shadow: 4px 4px 12px #000000;
+      min-height: 80px; /* Evita que el texto salte al aparecer */
+    }
+
+    #entrada {
+      font-size: 1.5rem;
+      padding: 15px;
+      margin-top: 40px;
+      border-radius: 8px; /* Bordes redondeados */
+      border: none;
+      text-align: center;
+      /* ✨ MEJORA: Transición suave para ocultar */
+      transition: opacity 0.5s ease-out;
+    }
+
+    /* ✨ MEJORA: Una forma más moderna y suave de ocultar */
+    .ocultar {
+      opacity: 0;
+      pointer-events: none; /* Evita que se pueda interactuar con el elemento oculto */
+    }
+  </style>
+</head>
+<body>
+  <h1>Bienvenid@ a Amada Maquinaria Ibérica</h1>
+  <h2>Hoy nos visita la empresa:</h2>
+  <div id="empresa">______</div>
+
+  <input id="entrada" type="text" placeholder="Escriba el nombre de la empresa">
+
+  <script>
+    const entrada = document.getElementById('entrada');
+    const empresa = document.getElementById('empresa');
+
+    // ✨ MEJORA: Pone el cursor en el campo de texto al cargar la página
+    entrada.focus();
+
+    entrada.addEventListener('input', () => {
+      // ✨ MEJORA: Si el campo está vacío, vuelve a poner los guiones
+      empresa.textContent = entrada.value || '______';
+    });
+
+    // ✅ CORRECCIÓN: Usamos 'keydown' para detectar la pulsación de una tecla
+    entrada.addEventListener('keydown', (event) => {
+      // Comprobamos si la tecla pulsada es "Enter"
+      if (event.key === 'Enter') {
+        // Evita que se envíe un formulario (buena práctica)
+        event.preventDefault(); 
+        
+        // Añade la clase para iniciar la animación de ocultar
+        entrada.classList.add('ocultar');
+      }
+    });
+  </script>
+</body>
+</html>
